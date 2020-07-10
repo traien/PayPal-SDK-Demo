@@ -58,106 +58,55 @@ namespace PaypalTest2
 
                 ApplicationContext = new ApplicationContext
                 {
-                    BrandName = "EXAMPLE INC",
+                    BrandName = "Jaguar CRM",
                     LandingPage = "BILLING",
-                    UserAction = "CONTINUE",
-                    ShippingPreference = "SET_PROVIDED_ADDRESS"
+                    UserAction = "PAY_NOW",
+                    ShippingPreference = "NO_SHIPPING"
                 },
                 PurchaseUnits = new List<PurchaseUnitRequest>
         {
-          new PurchaseUnitRequest{
-            ReferenceId =  "PUHF",
-            Description = "Sporting Goods",
-            CustomId = "CUST-HighFashions",
-            SoftDescriptor = "HighFashions",
-            AmountWithBreakdown = new AmountWithBreakdown
-            {
-              CurrencyCode = "USD",
-              Value = "230.00",
-              AmountBreakdown = new AmountBreakdown
+          new PurchaseUnitRequest
+          {
+              AmountWithBreakdown = new AmountWithBreakdown
               {
-                ItemTotal = new Money
-                {
                   CurrencyCode = "USD",
-                  Value = "180.00"
-                },
-                Shipping = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "30.00"
-                },
-                Handling = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "10.00"
-                },
-                TaxTotal = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "20.00"
-                },
-                ShippingDiscount = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "10.00"
-                }
-              }
-            },
-            Items = new List<Item>
-            {
-              new Item
-              {
-                Name = "T-shirt",
-                Description = "Green XL",
-                Sku = "sku01",
-                UnitAmount = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "90.00"
-                },
-                Tax = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "10.00"
-                },
-                Quantity = "1",
-                Category = "PHYSICAL_GOODS"
+                  Value = "25",
+                  AmountBreakdown = new AmountBreakdown
+                  {
+                      ItemTotal =  new Money
+                      {
+                          CurrencyCode = "USD",
+                          Value = "25"
+                      },
+                  }
               },
-              new Item
+              InvoiceId = "111111",
+              CustomId = "22222",
+              SoftDescriptor = "Jaguar CRM",
+              ShippingDetail = new ShippingDetail
               {
-                Name = "Shoes",
-                Description = "Running, Size 10.5",
-                Sku = "sku02",
-                UnitAmount = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "45.00"
-                },
-                Tax = new Money
-                {
-                  CurrencyCode = "USD",
-                  Value = "5.00"
-                },
-                Quantity = "2",
-                Category = "PHYSICAL_GOODS"
-              }
-            },
-            ShippingDetail = new ShippingDetail
-            {
-              Name = new Name
-              {
-                FullName = "John Doe"
+                  Name = new Name
+                  {
+                      FullName ="free"
+                  }
               },
-              AddressPortable = new AddressPortable
+              Items = new List<Item>
               {
-                AddressLine1 = "123 Townsend St",
-                AddressLine2 = "Floor 6",
-                AdminArea2 = "San Francisco",
-                AdminArea1 = "CA",
-                PostalCode = "94107",
-                CountryCode = "US"
+                  new Item
+                  {
+                      Name = "Jaguar CRM small",
+                      Category = "DIGITAL_GOODS",
+                      Quantity = "1",
+                      Sku = "sf",
+                      UnitAmount = new Money
+                      {
+                          CurrencyCode = "USD",
+                          Value = "25"
+                      },
+                      Description="ddddd"
+                  }
               }
-            }
+
           }
         }
             };

@@ -36,28 +36,28 @@
                 paypal.Buttons({
                     createOrder: function (data, actions) {
 
-                        console.log('pressed');
-                        return fetch('/Home/createOrderAsync', {
-                            method: 'post',
-                            headers: {
-                                'content-type': 'application/json'
-                            }
-                        }).then(function (res) {
-                            console.log(res);
-                            return res.json();
-                        }).then(function (data) {
-                            console.log(data);
-                            return data.Id; // Use the same key name for order ID on the client and server
-                        });
-                        //var t = actions.order.create({
-                        //    purchase_units: [{
-                        //        amount: {
-                        //            value: '1.01'
-                        //        }
-                        //    }]
+                        //console.log('pressed');
+                        //return fetch('/Home/createOrderAsync', {
+                        //    method: 'post',
+                        //    headers: {
+                        //        'content-type': 'application/json'
+                        //    }
+                        //}).then(function (res) {
+                        //    console.log(res);
+                        //    return res.json();
+                        //}).then(function (data) {
+                        //    console.log(data);
+                        //    return data.Id; // Use the same key name for order ID on the client and server
                         //});
-                        //console.log(t);
-                        //return t;
+                        var t = actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: '1.01'
+                                }
+                            }]
+                        });
+                        console.log(t);
+                        return t;
                     },
                     onApprove: function (data, actions) {
                         // This function captures the funds from the transaction.
